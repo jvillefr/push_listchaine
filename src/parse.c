@@ -1,5 +1,5 @@
-#include "libft/libft.h"
-#include "push_swap_utils.h"
+#include "../libft/libft.h"
+#include "../include/parse.h"
 
 bool ft_all_digit(char **argv)
 {
@@ -71,3 +71,13 @@ char **ft_is_split(char *argv){
         else
             return (tab);
 }
+
+bool parse_input(char **argv){
+    if(!ft_all_digit(argv) || !ft_dupli(argv))
+        return (false);
+    if(!ft_int_range(argv))
+        return (false);
+    else
+        return (true);
+}
+

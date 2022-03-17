@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "complex": "c",
+        "push_swap_utils.h": "c"
+    }
+}
