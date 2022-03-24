@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/24 10:05:03 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/03/24 16:32:49 by jvillefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
-#include "../include/parse.h"
+#include "../include/push_swap.h"
 
 bool ft_all_digit(char **argv)
 {

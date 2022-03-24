@@ -1,29 +1,81 @@
-#include "../include/parse.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ent_display.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/24 10:04:46 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/03/24 16:31:20 by jvillefr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
 #include "../libft/libft.h"
 
-void ft_pop(char **argv, t_stack *a){
-    int i;
-    int j;
-    i = 0;
-    j = 0;
-    a->tab = (int *)malloc(sizeof(int) * ft_tab_size(argv));
-    if(!a->tab)
+
+void ft_init(t_stack *s)
+{
+    s->first = NULL;
+    s->last = NULL;
+}
+
+void ft_push_back(char **argv, t_stack *a, int val) /* use as push_back*/
+{
+    elem *new;
+    new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+    if(!new)
         exit(EXIT_FAILURE);
-    while(argv[i] != NULL){
-        a->tab[j] = ft_atoi(argv[i]);
+    new->value = val;
+    new->prev = a->last;
+    new->next = NULL;
+    if(a->last)
+        a->last->next = new;
+    else
+        a->first = new;
+    a->last = new;
+}
+
+void ft_push_user_input(char **argv, t_stack *a)
+{
+    size_t i;
+    i = 0;
+    
+    //i = ft_tab_size(argv);
+
+    while(argv[i])
+    {
+        ft_push_back(argv, a, ft_atoi(argv[i]));
        // ft_putnbr_fd( a->tab[j], 2);
        // ft_putchar_fd('\n', 2);
         i++;
-        j++;
     }
 }
 
-void ft_print_stack(t_stack a){ /* clear char **argv from fucnton please */
-    int i;
-    i = 0;
-    while(a.tab[i] != '\0'){
-        ft_putnbr_fd( a.tab[i], 2);
+void ft_print_stack(t_stack a) /* clear char **argv from fucnton please */
+{
+    elem *pelem = a.first;
+    while(pelem)
+    {
+        ft_putnbr_fd(pelem->value, 2);
         ft_putchar_fd('\n', 2);
-        i++;
+        pelem = pelem->next;
     }
+}
+
+void ft_push_front(char **argv, t_stack *a, int val)
+{
+    
+   elem *new;
+   new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+   if(!new) exit(EXIT_FAILURE);
+    
+    new->value = val;
+    new->next = a->first;
+    new->prev = NULL;      
+    if(a->first)
+        a->first->prev = new;
+    else 
+        a->last = new;
+    a->first = new;
 }
