@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/25 15:02:42 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/03/27 14:15:47 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,28 +52,32 @@ void swap_ab(t_stack *a, t_stack *b)
 
 int pop_front(t_stack *a)
 {
-   int val;
-   elem *tmp = a->first;
-   if(!tmp) return -1;
-   val = tmp->value;
-   a->first = tmp->next;
-   if(a->first) a->first->prev = NULL;
-   else a->last = NULL;
-   free(tmp);
+    int val;
+    elem *tmp = a->first;
+    if(!tmp)
+        return -1;
+    val = tmp->value;
+    a->first = tmp->next;
+    if(a->first)
+        a->first->prev = NULL;
+    else
+        a->last = NULL;
    return val;
 }
 
 int pop_back(t_stack *a)
 {
-   int val;
-   elem *tmp = a->last;
-   if(!tmp) return -1;
-   val = tmp->value;
-   a->last = tmp->prev;
-   if(a->last) a->last->next = NULL;
-   else a->first = NULL;
-   free(tmp);
-   return val;
+    int val;
+    elem *tmp = a->last;
+    if(!tmp)
+        return -1;
+    val = tmp->value;
+    a->last = tmp->prev;
+    if(a->last)
+        a->last->next = NULL;
+    else
+        a->first = NULL;
+    return val;
 }
 
 
@@ -98,11 +102,9 @@ void reverse_rotate(t_stack *a, char **arg)
     if(!b->tab)
         exit(EXIT_FAILURE);
     b->tab(ft_tab_size(b->tab)++) = ft_atoi(argv[0]);
-
     ft_print_stack(t_stack b);
    
     
-
    
     
     a->tab = (int *)malloc(sizeof(int) * (ft_tab_size(argv)- 1));
@@ -115,5 +117,4 @@ void reverse_rotate(t_stack *a, char **arg)
         i++;
         j++;
     }
-
 } */
