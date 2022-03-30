@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:46 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/26 23:45:41 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:41:56 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void push_front(char **argv, t_stack *a, int val)
     
    elem *new;
    new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+  // new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
    if(!new) exit(EXIT_FAILURE);
     
     new->value = val;

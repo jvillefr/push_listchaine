@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/26 16:52:46 by jvillefr         ###   ########.fr       */
+/*   Created: 2022/03/24 11:28:20 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/03/25 15:05:09 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
+
+
 
 void reverse_rotate_a(t_stack *a, char **argv)
 {
@@ -37,3 +39,9 @@ void reverse_rotate_ab(t_stack *a, t_stack *b, char **argv)
     reverse_rotate_b(b,argv);
     ft_putendl_fd("rrr", 1);
 }
+
+
+
+
+
+
