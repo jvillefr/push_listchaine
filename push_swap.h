@@ -6,9 +6,10 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:54 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/25 14:57:36 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/04/05 18:09:00 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -61,12 +62,24 @@ int  pop_front(t_stack *a);
 void push_front(char **argv, t_stack *a, int val);
 int pop_back(t_stack *a);
 
-
-
-
-
 int stacklen(t_stack a);
 void push(char **argv, t_stack *a, t_stack *b);
 
+int sort_max_three(char **argv, t_stack *a, t_stack *b);
+void first_case_max_three(elem *x, elem *z, char **argv, t_stack *a);
+void second_case_max_three(elem *x, elem *z, char **argv, t_stack *a);
+bool check_sort(t_stack a);
+
+
+int sort_max_five(char **argv, t_stack *a, t_stack *b);
+int push_max_one(char **argv, int index, t_stack *a, t_stack *b);
+void start_from_z(char **argv, int index, t_stack *a, t_stack *b);
+int find_max_index(t_stack a);
+int find_max_nbr(t_stack a);
+int push_max_two(char **argv, int index, t_stack *a, t_stack *b);
+
+void fonct(char **argv, t_stack *a, t_stack *b);
+
+int roll(char **argv, t_stack *a, t_stack *b);
 
 # endif
