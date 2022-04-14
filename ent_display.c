@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:46 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/30 15:41:56 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:30:00 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,19 @@ void push_front(char **argv, t_stack *a, int val)
         a->last = new;
     a->first = new;
 }
+
+/*void push_back_index(char **argv, t_stack *a, int val)  use as push_back 
+{
+    elem *new;
+    new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+    if(!new)
+        exit(EXIT_FAILURE);
+    new->value = val;
+    new->prev = a->last;
+    new->next = NULL;
+    if(a->last)
+        a->last->next = new;
+    else
+        a->first = new;
+    a->last = new;
+}*/
