@@ -5,14 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 11:28:20 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/30 11:38:00 by jvillefr         ###   ########.fr       */
+/*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/04/05 10:42:10 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
+
+    // max three fonction
+        /*i = find_max_index(a);
+        push_max_one(argv, i, &a, &b);
+        j = find_max_index(a);
+        push_max_two(argv, j, &a, &b);
+        sort_max_five(argv, &a, &b);*/
 
 int sort_max_three(char **argv, t_stack *a, t_stack *b)
 {
@@ -86,6 +93,3 @@ bool check_sort(t_stack a)
     ft_putendl_fd("ok", 1);
     return true;
 }
-
-
-

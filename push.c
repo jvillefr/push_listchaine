@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 16:51:52 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/28 10:13:45 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:15:29 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ void push_b(char **argv, t_stack *a, t_stack *b)
         ft_putendl_fd("pb", 1);
     }
 }
-

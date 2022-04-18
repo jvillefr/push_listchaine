@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/28 12:39:23 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/04/16 16:15:57 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@ void swap_a(t_stack *a)
     if (a->first->next != NULL)
     {
         tmp.value = a->first->value;
+        tmp.index = a->first->index;
+        tmp.index_binaire = a->first->index_binaire;
         a->first->value = a->first->next->value;
+        a->first->index = a->first->next->index;
+        a->first->index_binaire = a->first->next->index_binaire;
         a->first->next->value = tmp.value;
+        a->first->next->index = tmp.index;
+        a->first->next->index_binaire = tmp.index_binaire;
         ft_putendl_fd("sa", 1);
     }
     
@@ -32,8 +38,14 @@ void swap_b(t_stack *b)
     if (b->first->next != NULL)
     {
         tmp.value = b->first->value;
+        tmp.index = b->first->index;
+        tmp.index_binaire = b->first->index_binaire;
         b->first->value = b->first->next->value;
+        b->first->index = b->first->next->index;
+        b->first->index_binaire = b->first->next->index_binaire;
         b->first->next->value = tmp.value;
+        b->first->next->index = tmp.index;
+        b->first->next->index_binaire = tmp.index_binaire;
         ft_putendl_fd("sb", 1);
     }
     
@@ -52,28 +64,41 @@ void swap_ab(t_stack *a, t_stack *b)
 
 int pop_front(t_stack *a)
 {
-   int val;
-   elem *tmp = a->first;
-   if(!tmp) return -1;
-   val = tmp->value;
-   a->first = tmp->next;
-   if(a->first) a->first->prev = NULL;
-   else a->last = NULL;
+    int val;
+    int ind;
+    int *bin;
+    elem *tmp = a->first;
+    if(!tmp)
+        return -1;
+    val = tmp->value;
+    ind = tmp->index;
+    bin = tmp->index_binaire;
+    a->first = tmp->next;
+    if(a->first)
+        a->first->prev = NULL;
+    else
+        a->last = NULL;
   // free(tmp);
-   return val;
+    return val;
 }
 
 int pop_back(t_stack *a)
 {
-   int val;
-   elem *tmp = a->last;
-   if(!tmp) return -1;
-   val = tmp->value;
-   a->last = tmp->prev;
-   if(a->last) a->last->next = NULL;
-   else a->first = NULL;
+    int val;
+    int ind;
+    int *bin;
+    elem *tmp = a->last;
+    if(!tmp)
+        return -1;
+    val = tmp->value;
+    ind = tmp->index;
+    bin = tmp->index_binaire;
+    a->last = tmp->prev;
+    if(a->last)
+        a->last->next = NULL;
+    else a->first = NULL;
    //free(tmp);
-   return val;
+    return val;
 }
 
 
@@ -98,11 +123,9 @@ void reverse_rotate(t_stack *a, char **arg)
     if(!b->tab)
         exit(EXIT_FAILURE);
     b->tab(ft_tab_size(b->tab)++) = ft_atoi(argv[0]);
-
     ft_print_stack(t_stack b);
    
     
-
    
     
     a->tab = (int *)malloc(sizeof(int) * (ft_tab_size(argv)- 1));
@@ -115,5 +138,4 @@ void reverse_rotate(t_stack *a, char **arg)
         i++;
         j++;
     }
-
 } */

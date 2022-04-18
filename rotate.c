@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 11:28:20 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/25 15:04:23 by jvillefr         ###   ########.fr       */
+/*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/04/02 12:15:34 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,3 @@ int stacklen(t_stack a)
     }
     return n;
 }
-
-
-
-
-

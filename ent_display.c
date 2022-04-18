@@ -6,13 +6,12 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:46 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/04/13 11:30:00 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/04/16 18:28:34 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
-
 
 void init(t_stack *s)
 {
@@ -22,11 +21,14 @@ void init(t_stack *s)
 
 void push_back(char **argv, t_stack *a, int val) /* use as push_back*/
 {
+    //ft_tab_size(argv)
     elem *new;
-    new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+    new = (elem *)malloc(sizeof(elem));
     if(!new)
         exit(EXIT_FAILURE);
     new->value = val;
+    new->index = indexp_single(argv, a, val);
+    new->index_binaire = bin(new->index);
     new->prev = a->last;
     new->next = NULL;
     if(a->last)
@@ -38,17 +40,16 @@ void push_back(char **argv, t_stack *a, int val) /* use as push_back*/
 
 void push_user_input(char **argv, t_stack *a)
 {
-    size_t i;
-    i = 0;
+    int i;
     
-    //i = ft_tab_size(argv);
+    i = ft_tab_size(argv);
 
-    while(argv[i])
+    while(i > 0)
     {
-        push_back(argv, a, ft_atoi(argv[i]));
+        push_front(argv, a, ft_atoi(argv[i-1]));
        // ft_putnbr_fd( a->tab[j], 2);
        // ft_putchar_fd('\n', 2);
-        i++;
+        i--;
     }
 }
 
@@ -65,11 +66,41 @@ void print_stack(t_stack a) /* clear char **argv from fucnton please */
 
 void push_front(char **argv, t_stack *a, int val)
 {
-    
-   elem *new;
-   new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+    elem *new;
+    new = (elem *)malloc(sizeof(elem));
   // new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
-   if(!new) exit(EXIT_FAILURE);
+    if(!new)
+        exit(EXIT_FAILURE);
+    new->value = val;
+    new->index = indexp_single(argv, a, val);
+    new->index_binaire = bin(new->index);
+    new->next = a->first;
+    new->prev = NULL;      
+    if(a->first)
+        a->first->prev = new;
+    else 
+        a->last = new;
+    a->first = new;
+}
+
+
+
+void view_inter(inter *p)
+{
+    while(p)
+    {
+        printf("%d\n",p->value);
+        p = p->prev;
+    }
+}
+
+void push_index_front(char **argv, t_stack *a, int val)
+{
+    elem *new;
+    new = (elem *)malloc(sizeof(elem));
+  // new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
+    if(!new)
+        exit(EXIT_FAILURE);
     
     new->value = val;
     new->next = a->first;
@@ -80,19 +111,3 @@ void push_front(char **argv, t_stack *a, int val)
         a->last = new;
     a->first = new;
 }
-
-/*void push_back_index(char **argv, t_stack *a, int val)  use as push_back 
-{
-    elem *new;
-    new = (elem *)malloc(sizeof(elem) * ft_tab_size(argv));
-    if(!new)
-        exit(EXIT_FAILURE);
-    new->value = val;
-    new->prev = a->last;
-    new->next = NULL;
-    if(a->last)
-        a->last->next = new;
-    else
-        a->first = new;
-    a->last = new;
-}*/

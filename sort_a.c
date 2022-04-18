@@ -5,13 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 11:28:20 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/28 15:59:07 by jvillefr         ###   ########.fr       */
+/*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/04/02 11:56:18 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../include/push_swap.h"
-#include "../libft/libft.h"
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
@@ -26,17 +23,17 @@ int sort_max_three(char **argv, t_stack *a, t_stack *b)
 
     if (x->value < x->next->value)
     {
-       first_case(x, z, argv, a);
+       first_case_max_three(x, z, argv, a);
     }
     if(x->next->value < x->value)
     {
-        second_case(x, z, argv, a);
+        second_case_max_three(x, z, argv, a);
     }
 
     return(0);
 }
 
-void first_case(elem *x, elem *z, char **argv, t_stack *a)
+void first_case_max_three(elem *x, elem *z, char **argv, t_stack *a)
 {
     if (x->value < z->value && z->value < x->next->value)
     {
@@ -50,7 +47,7 @@ void first_case(elem *x, elem *z, char **argv, t_stack *a)
 
 }
 
-void second_case(elem *x, elem *z, char **argv, t_stack *a)
+void second_case_max_three(elem *x, elem *z, char **argv, t_stack *a)
 {
     if(x->value < z->value)
     {
@@ -88,14 +85,3 @@ bool check_sort(t_stack a)
     ft_putendl_fd("ok", 1);
     return true;
 }
-
-/* void print_stack(t_stack a)
-{
-    elem pelem = a.first;
-    while(pelem)
-    {
-        ft_putnbr_fd(pelem->value, 2);
-        ft_putchar_fd('\n', 2);
-        pelem = pelem->next; 
-    }
-}*/

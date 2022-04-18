@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 11:28:20 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/03/30 15:47:25 by jvillefr         ###   ########.fr       */
+/*   Created: 2022/03/24 10:04:50 by jvillefr          #+#    #+#             */
+/*   Updated: 2022/04/07 13:44:37 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
-int sort_max_five(char **argv, int index, t_stack *a, t_stack *b)
+
+int sort_max_five(char **argv, t_stack *a, t_stack *b)
 {
-    push_max_one(argv, index, a, b);
-    push_max_two(argv, index, a, b);
     sort_max_three(argv, a, b);
     if(b->first->value < b->first->next->value)
     {
@@ -61,7 +60,7 @@ int push_max_one(char **argv, int index, t_stack *a, t_stack *b)
     return (0);
 }
 
-int start_from_z(char **argv, int index, t_stack *a, t_stack *b)
+void start_from_z(char **argv, int index, t_stack *a, t_stack *b)
 {
     if(index == 3)
     {
@@ -69,12 +68,12 @@ int start_from_z(char **argv, int index, t_stack *a, t_stack *b)
         reverse_rotate_a(a, argv);
         push_b(argv, a, b);
     }
-    if(index == 4)
+    else
     {
         reverse_rotate_a(a, argv);
         push_b(argv, a, b);
     }
-    return (0);
+
 }
 
 int find_max_index(t_stack a)
@@ -99,10 +98,8 @@ int find_max_index(t_stack a)
 int find_max_nbr(t_stack a)
 {
     int i;
-    int j;
 
-    j = 0;
-    i = 0;
+    i = a.first->value;
     elem *pelem = a.first;
     while(pelem)
     {
@@ -115,6 +112,22 @@ int find_max_nbr(t_stack a)
     return i;
 }
 
+int find_min_nbr(t_stack a)
+{
+    int i;
+
+    i = a.first->value;
+    elem *pelem = a.first;
+    while(pelem)
+    {
+        if( i > pelem->value)
+        {
+            i = pelem->value;
+        }
+        pelem = pelem->next;
+    }
+    return i;
+}
 
 
 int push_max_two(char **argv, int index, t_stack *a, t_stack *b)
@@ -122,9 +135,8 @@ int push_max_two(char **argv, int index, t_stack *a, t_stack *b)
     if(index == 0)
     {
         push_b(argv, a, b);
-        
+        ft_putendl_fd("index 0", 1);
     }
-        
     if(index == 1)
     {
         rotate_a(a, argv);
@@ -136,7 +148,7 @@ int push_max_two(char **argv, int index, t_stack *a, t_stack *b)
         reverse_rotate_a(a, argv);
         push_b(argv, a, b);
     }
-    if(index > 2)
+    if(index == 3)
     {
         reverse_rotate_a(a, argv);
         push_b(argv, a, b);
@@ -150,7 +162,6 @@ int push_max_two(char **argv, int index, t_stack *a, t_stack *b)
     elem *z;
     elem *i;
     
-
     x = a->first;
     z = a->last;
     i = b->first;
@@ -159,6 +170,4 @@ int push_max_two(char **argv, int index, t_stack *a, t_stack *b)
     push_b(argv, a, b);
     sort_max_three(argv, a, b);
     first_case_max_five()
-
 } */
-
