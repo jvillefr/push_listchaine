@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:04:46 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/04/29 15:53:46 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/04/30 19:33:31 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,18 @@ void	push_front(char **argv, t_stack *a, int val)
 void	clear_stack(t_stack *a)
 {
 	t_elem	*pelem;
+	t_elem	*tmp;
 
 	pelem = a->first;
-	while (pelem)
+	while (pelem != NULL)
 	{
-		pop_front(a);
+		tmp = pelem;
 		pelem = pelem->next;
+		free(tmp->index_binaire);
+		free(tmp);
 	}
-
+	a->first = NULL;
+	a->last = NULL;
 }
 
 void	clear_argv(char **s, size_t n)
@@ -73,7 +77,7 @@ void	clear_argv(char **s, size_t n)
 	str = (char **)s;
 	while (i < n)
 	{
-		str[i] = 0;
+		str[i] = NULL;
 		i++;
 	}
 	s = str;

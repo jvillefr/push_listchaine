@@ -6,7 +6,7 @@
 /*   By: jvillefr <jvillefr@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:03:42 by jvillefr          #+#    #+#             */
-/*   Updated: 2022/04/29 15:56:13 by jvillefr         ###   ########.fr       */
+/*   Updated: 2022/05/02 08:39:12 by jvillefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	push_user_input(char **argv, t_stack *a)
 	int	i;
 
 	i = ft_tab_size(argv);
+	printf("%d", i);
 	while (i > 0)
 	{
 		push_front(argv, a, ft_atoi(argv[i - 1]));
@@ -59,28 +60,20 @@ int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	int i;
+
 
 	argv++;
 	init(&a);
 	init(&b);
 	if (argc == 1)
-		return (0);
 	if (argc == 2)
 		argv = ft_is_split(argv[0]);
 	if (!parse_input(argv))
 		return (0);
-	
 	push_user_input(argv, &a);
 	start_sort(argv, &a, &b);
-	clear_argv(argv, ft_tab_size(argv));
-	i = ft_tab_size(argv);
-	printf("%d", i);
-	printf("\n");
-	printf("\n");
+	//lear_argv(argv, ft_tab_size(argv));
 	clear_stack(&a);
-	printf("\n");
-	printf("%d", stacklen(a));
-	
+	//free(argv[0]);
 	return (0);
 }
